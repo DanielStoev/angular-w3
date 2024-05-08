@@ -1,11 +1,19 @@
 <div class="mainSection">
   <div class="notepad">
-    <input type="text" placeholder="Note Title">
-    <textarea cols="50" rows="20" placeholder="Today I need to...."></textarea>
-    <button>Save note</button>
+    <input type="text" [(ngModel)]="noteTitle" placeholder="Note Title">
+    <textarea cols="50" rows="20" [(ngModel)]="noteContent" placeholder="Today I need to...."></textarea>
+    <button (click)="saveNote(noteTitle, noteContent)">Save note</button>
   </div>
   <div class="separator"></div>
   <div class="savedNotes">
     <h1>Saved Notes</h1>
+    <ul>
+      <li *ngFor="let note of notes; let i = index">
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.content }}</p>
+        <button (click)="editNote(i)">edit</button>
+        <button (click)="deleteNote(i)">delete</button>
+      </li>
+    </ul>
   </div>
 </div>
