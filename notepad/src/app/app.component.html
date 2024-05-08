@@ -8,11 +8,11 @@
   <div class="savedNotes">
     <h1>Saved Notes</h1>
     <ul>
-      <li *ngFor="let note of notes; let i = index">
+      <li (click)="selectNote(i)" *ngFor="let note of notes; let i = index">
         <h3>{{ note.title }}</h3>
         <p>{{ note.content }}</p>
-        <button (click)="editNote(i)">edit</button>
-        <button (click)="deleteNote(i)">delete</button>
+        <button *ngIf="note.selected" (click)="editNote(i)">edit</button>
+        <button *ngIf="note.selected" (click)="deleteNote(i)">delete</button>
       </li>
     </ul>
   </div>

@@ -45,3 +45,7 @@ li {
     margin-bottom: 5px;
     list-style-type: none;
 }
+
+li > button {
+    margin-right: 5px;
+}
